@@ -1,0 +1,17 @@
+import { Module } from '@nestjs/common';
+import { PAYMENT_GATEWAY_TOKEN } from './interfaces/payment.interface.js';
+import { StripeService } from './stripe.service.js';
+import { ChipService } from './chip.service.js';
+
+@Module({
+  providers: [
+    {
+      provide: PAYMENT_GATEWAY_TOKEN,
+      useClass: StripeService,
+    },
+    StripeService,
+    ChipService,
+  ],
+  exports: [PAYMENT_GATEWAY_TOKEN, StripeService, ChipService],
+})
+export class PaymentsModule {}
