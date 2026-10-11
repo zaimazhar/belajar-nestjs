@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Payment } from './interfaces/payment.interface.js';
+import { Payment } from '../interfaces/payment.interface.js';
 
 @Injectable()
 export class StripeService implements Payment {
@@ -9,6 +9,10 @@ export class StripeService implements Payment {
   status: 'pending' | 'completed' | 'failed';
   createdAt: Date;
   updatedAt: Date;
+
+  authenticate(): string {
+    return 'stripe authentication';
+  }
 
   calculate(): string {
     return 'value from stripe';

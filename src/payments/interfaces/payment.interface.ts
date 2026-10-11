@@ -6,6 +6,7 @@ export interface Payment {
   createdAt: Date;
   updatedAt: Date;
   calculate(): string;
+  authenticate(): string;
 }
 
 export const PAYMENT_GATEWAY_TOKEN = 'PAYMENT_GATEWAY_TOKEN';
